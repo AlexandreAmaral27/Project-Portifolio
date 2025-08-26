@@ -6,169 +6,7 @@
   <title>Portfólio - Amaral</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-  <style>
-    /* RESET */
-    * {margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
-
-    body {
-      background-color: #0f0f0f;
-      color: #eaeaea;
-      line-height: 1.6;
-    }
-
-    /* HEADER */
-    header {
-      position: fixed;
-      top:0; left:0; width:100%;
-      background: rgba(20,20,20,0.95);
-      backdrop-filter: blur(6px);
-      padding: 15px 8%;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      z-index:1000;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.7);
-    }
-
-    header h1 {
-      color:#00ADB5;
-      font-size:22px;
-      font-weight:600;
-      letter-spacing:2px;
-    }
-
-    nav ul {
-      list-style:none;
-      display:flex;
-      gap:25px;
-    }
-
-    nav ul li a {
-      position: relative;
-      color:#eaeaea;
-      text-decoration:none;
-      font-size:15px;
-      font-weight:500;
-      transition:color .3s;
-    }
-
-    nav ul li a::after {
-      content:"";
-      position:absolute;
-      bottom:-6px; left:0;
-      width:0%; height:2px;
-      background:#00ADB5;
-      transition:.3s ease;
-      border-radius:4px;
-    }
-
-    nav ul li a:hover {color:#00ADB5;}
-    nav ul li a:hover::after {width:100%;}
-    nav ul li a.active {color:#00ADB5;}
-    nav ul li a.active::after {width:100%;}
-
-    /* HAMBURGER */
-    .hamburger {
-      display:none;
-      font-size:24px;
-      color:#eaeaea;
-      cursor:pointer;
-      background:none;
-      border:none;
-    }
-
-    /* MOBILE MENU */
-    @media (max-width: 768px) {
-      nav {
-        position: absolute;
-        top:100%; right:0;
-        width: 100%;
-        background:#141414;
-        max-height:0;
-        overflow:hidden;
-        transition:max-height .4s ease;
-      }
-      nav.active {
-        max-height:300px; /* abre menu */
-      }
-      nav ul {
-        flex-direction:column;
-        align-items:center;
-        gap:20px;
-        padding:20px 0;
-      }
-      .hamburger {
-        display:block;
-      }
-    }
-
-    main {padding-top:100px;}
-
-    section {
-      padding:80px 10%;
-      border-bottom:1px solid rgba(255,255,255,0.1);
-    }
-
-    /* SOBRE */
-    .sobre {
-      display:flex;flex-wrap:wrap;align-items:center;gap:40px;
-    }
-    .sobre img {
-      width:220px;height:220px;object-fit:cover;border-radius:50%;
-      border:5px solid #00ADB5;
-      box-shadow:0 0 25px rgba(0,173,181,0.5);
-    }
-    .sobre-content h2 {font-size:28px;color:#00ADB5;}
-    .sobre-content p {margin-top:15px;color:#ccc;max-width:600px;}
-
-    /* EXPERIENCE */
-    .experience h2, .projects h2 {color:#00ADB5;font-size:26px;margin-bottom:30px;}
-    .timeline {
-      position:relative;
-      padding-left:30px;
-      border-left:2px solid #00ADB5;
-    }
-    .timeline div {margin-bottom:25px;}
-    .timeline h3 {color:#fff;font-size:18px;}
-    .timeline p {color:#bbb;font-size:14px;}
-
-    /* PROJECTS */
-    .project-category {margin-bottom:50px;}
-    .project-category h3 {
-      color:#fff;
-      font-size:22px;
-      margin-bottom:20px;
-      border-left:4px solid #00ADB5;
-      padding-left:10px;
-    }
-    .project-grid {
-      display:grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap:20px;
-    }
-    .project-card {
-      background:#1b1b1b;
-      border-radius:12px;
-      padding:20px;
-      transition:0.3s;
-      box-shadow:0 4px 12px rgba(0,0,0,0.6);
-    }
-    .project-card:hover {transform:translateY(-5px);}
-    .project-card h4 {color:#00ADB5;margin-bottom:10px;font-size:18px;}
-    .project-card p {font-size:14px;color:#ccc;}
-
-    /* FOOTER */
-    footer {
-      background:#141414;
-      padding:40px 10%;
-      text-align:center;
-    }
-    .socials a {
-      color:#00ADB5;margin:0 10px;font-size:20px;transition:0.3s;
-    }
-    .socials a:hover {color:#fff;}
-    footer p {margin-top:15px;color:#666;font-size:13px;}
-  </style>
+  <link rel="stylesheet" href="estilo/styles.css">
 </head>
 <body>
 
@@ -187,7 +25,7 @@
 
 <main>
   <section id="sobre" class="sobre">
-    <img src="amaral.png" alt="Foto de perfil">
+    <img src="imagens/amaral.png" alt="Foto de perfil">
     <div class="sobre-content">
       <h2>Olá, sou Amaral</h2>
       <p>Sou um desenvolvedor apaixonado por tecnologia e inovação. Tenho experiência em desenvolvimento web full-stack, criando soluções modernas, responsivas e elegantes. Meu foco é transformar ideias em projetos reais, com código limpo e eficiente.</p>
@@ -275,9 +113,13 @@
 
 <footer id="contact">
   <div class="socials">
+    
+    <a href="#"><i class="fa-brands fa-facebook"></i></a>
+    <a href="#"><i class="fa-brands fa-instagram"></i></a>
     <a href="#"><i class="fa-brands fa-linkedin"></i></a>
     <a href="#"><i class="fa-brands fa-github"></i></a>
     <a href="#"><i class="fa-brands fa-twitter"></i></a>
+   
   </div>
   <p>© 2025 Amaral - Todos os direitos reservados.</p>
 </footer>
