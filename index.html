@@ -1,156 +1,308 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Portifólio</title>
-    <link rel="stylesheet" href="estilo/style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
-      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <link rel="stylesheet" href="estilo/styles.css" />
-  </head>
- <body>
+<!DOCTYPE html> 
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfólio - Amaral</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <style>
+    /* RESET */
+    * {margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+
+    body {
+      background-color: #0f0f0f;
+      color: #eaeaea;
+      line-height: 1.6;
+    }
+
+    /* HEADER */
+    header {
+      position: fixed;
+      top:0; left:0; width:100%;
+      background: rgba(20,20,20,0.95);
+      backdrop-filter: blur(6px);
+      padding: 15px 8%;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      z-index:1000;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.7);
+    }
+
+    header h1 {
+      color:#00ADB5;
+      font-size:22px;
+      font-weight:600;
+      letter-spacing:2px;
+    }
+
+    nav ul {
+      list-style:none;
+      display:flex;
+      gap:25px;
+    }
+
+    nav ul li a {
+      position: relative;
+      color:#eaeaea;
+      text-decoration:none;
+      font-size:15px;
+      font-weight:500;
+      transition:color .3s;
+    }
+
+    nav ul li a::after {
+      content:"";
+      position:absolute;
+      bottom:-6px; left:0;
+      width:0%; height:2px;
+      background:#00ADB5;
+      transition:.3s ease;
+      border-radius:4px;
+    }
+
+    nav ul li a:hover {color:#00ADB5;}
+    nav ul li a:hover::after {width:100%;}
+    nav ul li a.active {color:#00ADB5;}
+    nav ul li a.active::after {width:100%;}
+
+    /* HAMBURGER */
+    .hamburger {
+      display:none;
+      font-size:24px;
+      color:#eaeaea;
+      cursor:pointer;
+      background:none;
+      border:none;
+    }
+
+    /* MOBILE MENU */
+    @media (max-width: 768px) {
+      nav {
+        position: absolute;
+        top:100%; right:0;
+        width: 100%;
+        background:#141414;
+        max-height:0;
+        overflow:hidden;
+        transition:max-height .4s ease;
+      }
+      nav.active {
+        max-height:300px; /* abre menu */
+      }
+      nav ul {
+        flex-direction:column;
+        align-items:center;
+        gap:20px;
+        padding:20px 0;
+      }
+      .hamburger {
+        display:block;
+      }
+    }
+
+    main {padding-top:100px;}
+
+    section {
+      padding:80px 10%;
+      border-bottom:1px solid rgba(255,255,255,0.1);
+    }
+
+    /* SOBRE */
+    .sobre {
+      display:flex;flex-wrap:wrap;align-items:center;gap:40px;
+    }
+    .sobre img {
+      width:220px;height:220px;object-fit:cover;border-radius:50%;
+      border:5px solid #00ADB5;
+      box-shadow:0 0 25px rgba(0,173,181,0.5);
+    }
+    .sobre-content h2 {font-size:28px;color:#00ADB5;}
+    .sobre-content p {margin-top:15px;color:#ccc;max-width:600px;}
+
+    /* EXPERIENCE */
+    .experience h2, .projects h2 {color:#00ADB5;font-size:26px;margin-bottom:30px;}
+    .timeline {
+      position:relative;
+      padding-left:30px;
+      border-left:2px solid #00ADB5;
+    }
+    .timeline div {margin-bottom:25px;}
+    .timeline h3 {color:#fff;font-size:18px;}
+    .timeline p {color:#bbb;font-size:14px;}
+
+    /* PROJECTS */
+    .project-category {margin-bottom:50px;}
+    .project-category h3 {
+      color:#fff;
+      font-size:22px;
+      margin-bottom:20px;
+      border-left:4px solid #00ADB5;
+      padding-left:10px;
+    }
+    .project-grid {
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap:20px;
+    }
+    .project-card {
+      background:#1b1b1b;
+      border-radius:12px;
+      padding:20px;
+      transition:0.3s;
+      box-shadow:0 4px 12px rgba(0,0,0,0.6);
+    }
+    .project-card:hover {transform:translateY(-5px);}
+    .project-card h4 {color:#00ADB5;margin-bottom:10px;font-size:18px;}
+    .project-card p {font-size:14px;color:#ccc;}
+
+    /* FOOTER */
+    footer {
+      background:#141414;
+      padding:40px 10%;
+      text-align:center;
+    }
+    .socials a {
+      color:#00ADB5;margin:0 10px;font-size:20px;transition:0.3s;
+    }
+    .socials a:hover {color:#fff;}
+    footer p {margin-top:15px;color:#666;font-size:13px;}
+  </style>
+</head>
+<body>
 
 <header>
-<div class="hamburger" onclick="toggleMenu()">
-  <div></div>
-  <div></div>
-  <div></div>
-</div>
-
-<div class="overlay" id="menuOverlay">
-  <div class="left">
-    <h2>Menu Esquerdo</h2>
-  </div>
-  <div class="right">
-    <h2>Menu Direito</h2>
-  </div>
-</div>
+  <h1>Portfólio</h1>
+  <button class="hamburger"><i class="fas fa-bars"></i></button>
+  <nav>
+    <ul>
+      <li><a href="#sobre" class="active">Sobre</a></li>
+      <li><a href="#experience">Experiência</a></li>
+      <li><a href="#projects">Projetos</a></li>
+      <li><a href="#contact">Contato</a></li>
+    </ul>
+  </nav>
 </header>
 
 <main>
-  <section class="sobre">
-  <h1>Olá, eu sou Alexandre Amaral</h1>
-  <p>Desenvolvedor Full Stack apaixonado por tecnologia e inovação. 
-     Transformo ideias em soluções digitais com design moderno e funcional.</p>
-</section>
-
-<section class="Experience">
-  <h2>Experiência</h2>
-  <div class="timeline">
-    <div class="timeline-item">
-      <h3>Desenvolvedor Frontend</h3>
-      <p>Criação de interfaces modernas e responsivas com HTML, CSS e JS.</p>
+  <section id="sobre" class="sobre">
+    <img src="amaral.png" alt="Foto de perfil">
+    <div class="sobre-content">
+      <h2>Olá, sou Amaral</h2>
+      <p>Sou um desenvolvedor apaixonado por tecnologia e inovação. Tenho experiência em desenvolvimento web full-stack, criando soluções modernas, responsivas e elegantes. Meu foco é transformar ideias em projetos reais, com código limpo e eficiente.</p>
     </div>
-    <div class="timeline-item">
-      <h3>Backend Developer</h3>
-      <p>APIs escaláveis com Node.js e integração de sistemas.</p>
-    </div>
-  </div>
-</section>
+  </section>
 
-<section class="Projects">
-  <h2>Projetos</h2>
-  <div class="project-grid">
-    <div class="project-card">
-      <h3>Loja Virtual</h3>
-      <p>E-commerce completo com carrinho de compras e painel de gestão.</p>
+  <section id="experience" class="experience">
+    <h2>Experiência</h2>
+    <div class="timeline">
+      <div>
+        <h3>Desenvolvedor Frontend - Empresa X</h3>
+        <p>Criação de interfaces modernas e responsivas, integração de APIs e otimização de performance.</p>
+      </div>
+      <div>
+        <h3>Estágio Full Stack - Empresa Y</h3>
+        <p>Desenvolvimento de sistemas internos, automação de processos e suporte a aplicações.</p>
+      </div>
     </div>
-    <div class="project-card">
-      <h3>Blog Pessoal</h3>
-      <p>Plataforma para artigos com design minimalista e integração social.</p>
-    </div>
-  </div>
-</section>
+  </section>
 
-</main>
+  <section id="projects" class="projects">
+    <h2>Projetos</h2>
 
- <footer>
-  
-      <div class="footer-inner">
-        
-        <div class="top">
-          <div>
-            <h2>Are you ready?</h2>
-            <h3>Lets make a difference!</h3>
-          </div>
-          <button>Get started</button>
+    <div class="project-category">
+      <h3>Frontend</h3>
+      <div class="project-grid">
+        <div class="project-card">
+          <h4>Landing Page</h4>
+          <p>Página institucional moderna, responsiva e com SEO otimizado.</p>
         </div>
-        <div class="bottom">
-         
-          <div class="logo-content">
-             <img class="logo" src=""/>
-            <div class="socials">
-              <a class="fa-brands fa-x-twitter"></a>
-              <a class="fa-brands fa-discord"></a>
-              <a class="fa-brands fa-telegram"></a>
-              <a class="fa-brands fa-linkedin"></a>
-              <a class="fa-brands fa-facebook"></a>
-            </div>
-          </div>
-          <nav>
-            <ul>
-              <li>
-                <h4>FOREST.AI</h4>
-              </li>
-              <li>
-                <a>Forest</a>
-              </li>
-              <li>
-                <a>About</a>
-              </li>
-              <li>
-                <a>Manifesto</a>
-              </li>
-            </ul>
-            <ul>
-              <li>
-                <h4>PRODUCT</h4>
-              </li>
-              <li>
-                <a>Contact</a>
-              </li>
-              <li>
-                <a>Questions</a>
-              </li>
-              <li>
-                <a>Blog</a>
-              </li>
-            </ul>
-            <ul>
-              <li>
-                <h4>CONTACT</h4>
-              </li>
-              <li>
-                <a>Support</a>
-              </li>
-              <li>
-                <a>Conditions</a>
-              </li>
-              <li>
-                <a>Privacy</a>
-              </li>
-            </ul>
-          </nav>
+        <div class="project-card">
+          <h4>Blog Pessoal</h4>
+          <p>Blog responsivo com painel de administração e design elegante.</p>
         </div>
       </div>
-    </footer>
+    </div>
+
+    <div class="project-category">
+      <h3>Backend</h3>
+      <div class="project-grid">
+        <div class="project-card">
+          <h4>API de Produtos</h4>
+          <p>API RESTful para gerenciamento de produtos, com autenticação JWT.</p>
+        </div>
+        <div class="project-card">
+          <h4>Sistema de Usuários</h4>
+          <p>Gerenciamento de usuários com níveis de permissão e banco de dados seguro.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-category">
+      <h3>Fullstack</h3>
+      <div class="project-grid">
+        <div class="project-card">
+          <h4>Loja Virtual</h4>
+          <p>E-commerce completo com carrinho, autenticação e integração de pagamentos.</p>
+        </div>
+        <div class="project-card">
+          <h4>Dashboard Financeiro</h4>
+          <p>Ferramenta de análise financeira com gráficos interativos e relatórios.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer id="contact">
+  <div class="socials">
+    <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+    <a href="#"><i class="fa-brands fa-github"></i></a>
+    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+  </div>
+  <p>© 2025 Amaral - Todos os direitos reservados.</p>
+</footer>
 
 <script>
-  function toggleMenu() {
-    document.getElementById('menuOverlay').classList.toggle('active');
-  }
+  // Ativar link ativo no scroll
+  const sections = document.querySelectorAll("section");
+  const navLinks = document.querySelectorAll("nav ul li a");
+
+  window.addEventListener("scroll", () => {
+    let current = "";
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop - 120;
+      if (scrollY >= sectionTop) {
+        current = section.getAttribute("id");
+      }
+    });
+
+    navLinks.forEach(link => {
+      link.classList.remove("active");
+      if (link.getAttribute("href") === "#" + current) {
+        link.classList.add("active");
+      }
+    });
+  });
+
+  // Menu hambúrguer toggle
+  const hamburger = document.querySelector(".hamburger");
+  const nav = document.querySelector("nav");
+  hamburger.addEventListener("click", () => {
+    nav.classList.toggle("active");
+    hamburger.innerHTML = nav.classList.contains("active") 
+      ? '<i class="fas fa-times"></i>' 
+      : '<i class="fas fa-bars"></i>';
+  });
+
+  // Fechar menu ao clicar em link
+  navLinks.forEach(link => {
+    link.addEventListener("click", () => {
+      nav.classList.remove("active");
+      hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+    });
+  });
 </script>
 
 </body>
