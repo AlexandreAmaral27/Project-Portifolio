@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu Hamburger</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      font-family: sans-serif;
+    }
+
+    .hamburger {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      width: 30px;
+      height: 25px;
+      cursor: pointer;
+      z-index: 1001;
+    }
+
+    .hamburger div {
+      background: #000;
+      height: 4px;
+      margin: 5px 0;
+      border-radius: 2px;
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      width: 100vw;
+      display: none;
+      z-index: 1000;
+    }
+
+    .overlay.active {
+      display: flex;
+    }
+
+    .left, .right {
+      height: 100vh;
+      width: 50%;
+      transition: all 0.3s ease;
+    }
+
+    .left {
+      background-color: #333;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .right {
+      background-color: #555;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  </style>
+</head>
+<body>
+
+<div class="hamburger" onclick="toggleMenu()">
+  <div></div>
+  <div></div>
+  <div></div>
+</div>
+
+<div class="overlay" id="menuOverlay">
+  <div class="left">
+    <h2>Menu Esquerdo</h2>
+  </div>
+  <div class="right">
+    <h2>Menu Direito</h2>
+  </div>
+</div>
+
+<script>
+  function toggleMenu() {
+    document.getElementById('menuOverlay').classList.toggle('active');
+  }
+</script>
+
+</body>
+</html>
