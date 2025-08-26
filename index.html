@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portifólio</title>
+  <link rel="stylesheet" href="estilo/style.css">
+</head>
+<body>
+
+<header>
+<div class="hamburger" onclick="toggleMenu()">
+  <div></div>
+  <div></div>
+  <div></div>
+</div>
+
+<div class="overlay" id="menuOverlay">
+  <div class="left">
+    <h2>Menu Esquerdo</h2>
+  </div>
+  <div class="right">
+    <h2>Menu Direito</h2>
+  </div>
+</div>
+</header>
+
+<main>
+
+</main>
+
+ <footer>
+      <div class="footer-inner">
+        <div class="top">
+          <div>
+            <h2>Are you ready?</h2>
+            <h3>Lets make a difference!</h3>
+          </div>
+          <button>Get started</button>
+        </div>
+        <div class="bottom">
+          <div class="logo-content">
+            <img class="logo" src="logo.svg" />
+            <div class="socials">
+              <a class="fa-brands fa-x-twitter"></a>
+              <a class="fa-brands fa-discord"></a>
+              <a class="fa-brands fa-telegram"></a>
+              <a class="fa-brands fa-linkedin"></a>
+              <a class="fa-brands fa-facebook"></a>
+            </div>
+          </div>
+          <nav>
+            <ul>
+              <li>
+                <h4>FOREST.AI</h4>
+              </li>
+              <li>
+                <a>Forest</a>
+              </li>
+              <li>
+                <a>About</a>
+              </li>
+              <li>
+                <a>Manifesto</a>
+              </li>
+            </ul>
+            <ul>
+              <li>
+                <h4>PRODUCT</h4>
+              </li>
+              <li>
+                <a>Contact</a>
+              </li>
+              <li>
+                <a>Questions</a>
+              </li>
+              <li>
+                <a>Blog</a>
+              </li>
+            </ul>
+            <ul>
+              <li>
+                <h4>CONTACT</h4>
+              </li>
+              <li>
+                <a>Support</a>
+              </li>
+              <li>
+                <a>Conditions</a>
+              </li>
+              <li>
+                <a>Privacy</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </footer>
+
+<script>
+  function toggleMenu() {
+    document.getElementById('menuOverlay').classList.toggle('active');
+  }
+</script>
+
+</body>
+</html>
