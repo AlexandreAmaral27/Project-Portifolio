@@ -106,6 +106,8 @@ footer {
   left: 50%;
   translate: -50% 0;
   height: 20px;
+   width: 100px;
+  height: auto;
 }
 
 .top {
