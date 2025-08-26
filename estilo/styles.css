@@ -1,5 +1,13 @@
+body {
+  background: #04c9f1;
+  color: #f9f9f9;
+  font-family: "Euclid Circular B", "Poppins";
+}
 
-    body, html {
+* {
+  box-sizing: border-box;
+}
+  body, html {
       margin: 0;
       padding: 0;
       overflow-x: hidden;
@@ -76,7 +84,7 @@ footer {
   bottom: 0;
   right: 0;
   height: 723px;
-  background: #002421 url(bg.png);
+  background: #002421 url(../imagens/bg.png);
   background-position: 0 -21px;
   background-repeat: no-repeat;
   background-size: 300%;
@@ -263,5 +271,3 @@ ul {
   }
 }
 
-@media (width >= 690px) {
-}
