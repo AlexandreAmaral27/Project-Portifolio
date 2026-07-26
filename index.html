@@ -1153,6 +1153,156 @@ display:block;
 
 }
   </style>
+  <style>
+    .request-section{
+
+padding:100px 8%;
+background:#050505;
+color:#fff;
+
+}
+
+.request-container{
+
+max-width:1000px;
+margin:auto;
+background:#111;
+padding:50px;
+border-radius:25px;
+border:1px solid #222;
+
+}
+
+.request-title{
+
+text-align:center;
+margin-bottom:40px;
+
+}
+
+.request-title h2{
+
+font-size:42px;
+margin-bottom:10px;
+
+}
+
+.request-title p{
+
+color:#aaa;
+
+}
+
+.grid{
+
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+
+}
+
+.input-box{
+
+display:flex;
+flex-direction:column;
+margin-bottom:20px;
+
+}
+
+.input-box label{
+
+margin-bottom:8px;
+font-weight:600;
+
+}
+
+.input-box input,
+.input-box select,
+.input-box textarea{
+
+background:#181818;
+border:1px solid #333;
+color:#fff;
+padding:15px;
+border-radius:12px;
+font-size:15px;
+outline:none;
+transition:.3s;
+
+}
+
+.input-box input:focus,
+.input-box select:focus,
+.input-box textarea:focus{
+
+border-color:#00ADB5;
+box-shadow:0 0 15px rgba(0,173,181,.4);
+
+}
+
+.checks{
+
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:15px;
+margin:30px 0;
+
+}
+
+.checks label{
+
+background:#181818;
+padding:15px;
+border-radius:10px;
+cursor:pointer;
+transition:.3s;
+
+}
+
+.checks label:hover{
+
+background:#00ADB5;
+
+}
+
+.send-btn{
+
+margin-top:30px;
+width:100%;
+padding:18px;
+border:none;
+background:#00ADB5;
+color:#fff;
+font-size:18px;
+border-radius:50px;
+cursor:pointer;
+transition:.3s;
+
+}
+
+.send-btn:hover{
+
+transform:translateY(-4px);
+box-shadow:0 0 25px #00ADB5;
+
+}
+
+@media(max-width:700px){
+
+.request-container{
+
+padding:25px;
+
+}
+
+.request-title h2{
+
+font-size:30px;
+
+}
+
+}
+  </style>
   
 </head>
 <body>
@@ -1810,7 +1960,138 @@ Ver Projeto
 </div>
 
 </section>
+<section id="solicitar" class="request-section">
 
+<div class="request-container">
+
+<div class="request-title">
+<h2>🚀 Solicitar um Projeto</h2>
+<p>
+Preencha o formulário abaixo e receba um orçamento personalizado.
+</p>
+</div>
+
+<form id="projectForm">
+
+<div class="grid">
+
+<div class="input-box">
+<label>Nome Completo</label>
+<input type="text" id="nome" placeholder="Seu nome" required>
+</div>
+
+<div class="input-box">
+<label>WhatsApp</label>
+<input type="text" id="telefone" placeholder="+244..." required>
+</div>
+
+<div class="input-box">
+<label>E-mail</label>
+<input type="email" id="email" placeholder="email@exemplo.com">
+</div>
+
+<div class="input-box">
+<label>Empresa</label>
+<input type="text" id="empresa" placeholder="Nome da empresa">
+</div>
+
+<div class="input-box">
+<label>Tipo de Projeto</label>
+
+<select id="tipo">
+
+<option>Website Institucional</option>
+<option>Loja Virtual (E-commerce)</option>
+<option>Blog</option>
+<option>Sistema Web</option>
+<option>Landing Page</option>
+<option>Portfólio</option>
+<option>Outro</option>
+
+</select>
+
+</div>
+
+<div class="input-box">
+<label>Prazo</label>
+
+<select id="prazo">
+
+<option>Urgente</option>
+<option>7 dias</option>
+<option>15 dias</option>
+<option>30 dias</option>
+<option>Sem prazo definido</option>
+
+</select>
+
+</div>
+
+</div>
+
+<h3>Funcionalidades desejadas</h3>
+
+<div class="checks">
+
+<label><input type="checkbox" value="Login de Utilizadores"> Login</label>
+
+<label><input type="checkbox" value="Painel Administrativo"> Painel Administrativo</label>
+
+<label><input type="checkbox" value="Carrinho de Compras"> Carrinho</label>
+
+<label><input type="checkbox" value="Pagamentos Online"> Pagamentos Online</label>
+
+<label><input type="checkbox" value="Agendamento"> Agendamento</label>
+
+<label><input type="checkbox" value="Reservas"> Reservas</label>
+
+<label><input type="checkbox" value="Área do Cliente"> Área do Cliente</label>
+
+<label><input type="checkbox" value="Blog"> Blog</label>
+
+<label><input type="checkbox" value="Galeria"> Galeria</label>
+
+<label><input type="checkbox" value="Chat Online"> Chat</label>
+
+<label><input type="checkbox" value="Integração WhatsApp"> WhatsApp</label>
+
+<label><input type="checkbox" value="Multilíngue"> Multilíngue</label>
+
+</div>
+
+<div class="input-box">
+<label>Orçamento Disponível</label>
+
+<select id="orcamento">
+
+<option>Menos de 100.000 Kz</option>
+<option>100.000 - 250.000 Kz</option>
+<option>250.000 - 500.000 Kz</option>
+<option>500.000+ Kz</option>
+<option>A combinar</option>
+
+</select>
+
+</div>
+
+<div class="input-box">
+<label>Descreva o seu projeto</label>
+
+<textarea id="descricao" rows="7"
+placeholder="Explique como pretende o website..."></textarea>
+
+</div>
+
+<button type="submit" class="send-btn">
+<i class="fab fa-whatsapp"></i>
+Enviar Solicitação
+</button>
+
+</form>
+
+</div>
+
+</section>
 </main>
 
 <footer id="contact">
@@ -1825,7 +2106,50 @@ Ver Projeto
   <p>© 2025 Alexandre Amaral - Todos os direitos reservados.</p>
 </footer>
 
+<script>
+  document.getElementById("projectForm").addEventListener("submit",function(e){
 
+e.preventDefault();
+
+const nome=document.getElementById("nome").value;
+const telefone=document.getElementById("telefone").value;
+const email=document.getElementById("email").value;
+const empresa=document.getElementById("empresa").value;
+const tipo=document.getElementById("tipo").value;
+const prazo=document.getElementById("prazo").value;
+const orcamento=document.getElementById("orcamento").value;
+const descricao=document.getElementById("descricao").value;
+
+let funcionalidades=[];
+
+document.querySelectorAll(".checks input:checked").forEach(item=>{
+
+funcionalidades.push("• "+item.value);
+
+});
+
+let mensagem=`*🚀 NOVA SOLICITAÇÃO DE PROJETO*%0A%0A`;
+
+mensagem+=`*👤 Nome:* ${nome}%0A`;
+mensagem+=`*📱 WhatsApp:* ${telefone}%0A`;
+mensagem+=`*📧 Email:* ${email}%0A`;
+mensagem+=`*🏢 Empresa:* ${empresa}%0A%0A`;
+
+mensagem+=`*🌐 Tipo de Projeto:* ${tipo}%0A`;
+mensagem+=`*⏳ Prazo:* ${prazo}%0A`;
+mensagem+=`*💰 Orçamento:* ${orcamento}%0A%0A`;
+
+mensagem+=`*⚙ Funcionalidades:*%0A${funcionalidades.join("%0A")}%0A%0A`;
+
+mensagem+=`*📝 Descrição:*%0A${descricao}`;
+
+window.open(
+`https://wa.me/244929764090?text=${mensagem}`,
+"_blank"
+);
+
+});
+</script>
 <script>
   
   /* ================= HEADER ================= */
@@ -2168,6 +2492,7 @@ card.style.background="#111";
 
 });
 </script>
+  
 
 </body>
 </html>
